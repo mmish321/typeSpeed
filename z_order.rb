@@ -1,3 +1,3 @@
 module ZOrder
-	Background, Words = *0..1
+	Background, UI, Words = *0..2
 end
