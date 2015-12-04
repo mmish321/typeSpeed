@@ -5,7 +5,7 @@ class Word
 
 	def initialize(x,y,string,vel,window)
 		@string = string 
-		@color = Gosu::Color.new(0xff_00ff00)
+		@color = Gosu::Color.new(0xff_ffffff)
 		@x = x
 		@y = y
 		@vel = vel 
@@ -13,7 +13,7 @@ class Word
 		@explosion = Gosu::Image.new("media/explosion.png")
 		@exploded = false
 		@explode_drawn = false
-		
+		@font = Gosu::Font.new(20)
 	end
 
 	def move
@@ -21,7 +21,6 @@ class Word
 	end
 	
 	def draw
-		 @font = Gosu::Font.new(20)
 		 if self.is_at_bottom? == true
 		 	@explode_drawn = true
 		 	@explosion.draw(@x - @explosion.width / 2.0, @y - @explosion.height / 2.0,
@@ -32,7 +31,7 @@ class Word
 	end
 
 	def is_at_bottom?
-		if @y == 500
+		if @y < 500.0 && @y > 499.0
 			@exploded = true
 			return @exploded
 		end
@@ -40,7 +39,6 @@ class Word
 	end
 	def explode_drawn?
 		return @explode_drawn
-		
 	end
 
 
