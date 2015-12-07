@@ -1,15 +1,12 @@
 
 class Word
 	attr_accessor :x, :y 
-	
-
-	def initialize(x,y,string,vel,window)
+	def initialize(string)
 		@string = string 
-		@color = Gosu::Color.new(0xff_ffffff)
-		@x = x
-		@y = y
-		@vel = vel 
-		@window = window
+		@color = Gosu::Color.new(0xff_00ffff)
+		@x = rand(1000)
+		@y = 0.0
+		@vel = rand(0.20..1.00)
 		@explosion = Gosu::Image.new("media/explosion.png")
 		@exploded = false
 		@explode_drawn = false
@@ -31,7 +28,7 @@ class Word
 	end
 
 	def is_at_bottom?
-		if @y < 500.0 && @y > 499.0
+		if @y < 500.0 && @y > 480.0
 			@exploded = true
 			return @exploded
 		end

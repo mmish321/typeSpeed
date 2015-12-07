@@ -1,8 +1,7 @@
 require 'gosu'
 require_relative "word"
 require_relative "z_order"
-#require_relative "simple_word"
-#require_relative "compound_word"
+require_relative "compound_word"
 
 class GameWindow < Gosu::Window
   def initialize
@@ -15,7 +14,6 @@ class GameWindow < Gosu::Window
     data = File.read("words.txt")
     @object_words = []
     @words = data.split(", ")
- 
     @health = 100
     @score = 0 
     @time = Gosu::milliseconds
@@ -35,13 +33,18 @@ class GameWindow < Gosu::Window
         @object_words.delete(word)
       end
      }
-     if Gosu::milliseconds > @time 
-      @object_words.push(Word.new(rand(1000),0, @words[(rand(@words.length-1)).to_i], rand ,self))
-      @time += 1000
-      end
-    if @health <= 0
-      @object_words.clear
-    end
+     if Gosu::milliseconds > @time && @time < 5000
+      @object_words.push(Word.new(@words[(rand(@words.length-1)).to_i]))
+      @time += 3000
+  	elsif Gosu::milliseconds > @time && @time >= 5000
+  	  @object_words.push(Word.new(@words[(rand(@words.length-1)).to_i]))
+      @object_words.push(CompoundWord.new(@words[(rand(@words.length-1)).to_i]))
+      @time += 6000
+     end
+
+    # if @health <= 0
+    #   @object_words.clear
+    # end
   end
 
   def input_of_user
