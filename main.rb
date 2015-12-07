@@ -17,39 +17,41 @@ class GameWindow < Gosu::Window
     @health = 100
     @score = 0 
     @time = Gosu::milliseconds
+    @input_of_user = ""
   end
 
   def update
     @object_words.each { |word|
     	word.move
     }
+
     @object_words.each {|word|
       if word.is_at_bottom?
         @health -= 10
       end
     }
+
      @object_words.each { |word|
       if word.explode_drawn? == true 
         @object_words.delete(word)
       end
      }
-     if Gosu::milliseconds > @time && @time < 5000
+
+     if Gosu::milliseconds > @time && @time < 100000
       @object_words.push(Word.new(@words[(rand(@words.length-1)).to_i]))
-      @time += 3000
-  	elsif Gosu::milliseconds > @time && @time >= 5000
+      @time += 4000
+  	 elsif Gosu::milliseconds > @time && @time >= 100000
   	  @object_words.push(Word.new(@words[(rand(@words.length-1)).to_i]))
-      @object_words.push(CompoundWord.new(@words[(rand(@words.length-1)).to_i]))
+      @object_words.push(CompoundWord.new(@words[(rand(@words.length-1)).to_i] + @words[(rand(@words.length-1)).to_i]))
       @time += 6000
      end
 
-    # if @health <= 0
-    #   @object_words.clear
-    # end
-  end
-
-  def input_of_user
-
-    
+     if @health <= 0
+       @object_words.clear
+       @font.clear
+       @font1.clear
+     end
+ 
   end
 
   def draw
@@ -62,6 +64,14 @@ class GameWindow < Gosu::Window
       @font2.draw("GAME OVER", 300, 250, ZOrder::UI, 1.0, 1.0, 0xff_ff0000)
     end
   end
+ 
+  def button_down(id)
+    if id == Gosu::KbEscape
+      close
+    end
+  end
+
+
 end
 
 window = GameWindow.new

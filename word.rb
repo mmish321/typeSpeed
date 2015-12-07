@@ -1,6 +1,8 @@
 
 class Word
-	attr_accessor :x, :y 
+	
+	attr_accessor :x, :y , :points
+	
 	def initialize(string)
 		@string = string 
 		@color = Gosu::Color.new(0xff_00ffff)
@@ -11,6 +13,7 @@ class Word
 		@exploded = false
 		@explode_drawn = false
 		@font = Gosu::Font.new(20)
+		@points = 10 
 	end
 
 	def move
@@ -28,18 +31,15 @@ class Word
 	end
 
 	def is_at_bottom?
-		if @y < 500.0 && @y > 480.0
+		if @y =< 500.0 && @y >= 480.0
 			@exploded = true
 			return @exploded
 		end
-		
 	end
+	
 	def explode_drawn?
 		return @explode_drawn
 	end
-
-
-
 
 
 end
