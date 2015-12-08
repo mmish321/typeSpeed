@@ -17,7 +17,10 @@ class GameWindow < Gosu::Window
     @health = 100
     @score = 0 
     @time = Gosu::milliseconds
-    @input_of_user = ""
+   	self.text_input =Gosu::TextInput.new
+
+
+
   end
 
   def update
@@ -37,10 +40,10 @@ class GameWindow < Gosu::Window
       end
      }
 
-     if Gosu::milliseconds > @time && @time < 100000
+     if Gosu::milliseconds > @time && @time < 5000
       @object_words.push(Word.new(@words[(rand(@words.length-1)).to_i]))
       @time += 4000
-  	 elsif Gosu::milliseconds > @time && @time >= 100000
+  	 elsif Gosu::milliseconds > @time && @time >= 5000
   	  @object_words.push(Word.new(@words[(rand(@words.length-1)).to_i]))
       @object_words.push(CompoundWord.new(@words[(rand(@words.length-1)).to_i] + @words[(rand(@words.length-1)).to_i]))
       @time += 6000
@@ -48,17 +51,25 @@ class GameWindow < Gosu::Window
 
      if @health <= 0
        @object_words.clear
-       @font.clear
-       @font1.clear
      end
- 
+     if Gosu::button_down? Gosu::KbReturn
+	    @object_words.each { |word|
+	     if self.text_input.text.eql? word.string 
+	     	@score += word.points
+	     	@object_words.delete(word)	
+	     end
+
+	    } 
+	    self.text_input = nil 
+		self.text_input =Gosu::TextInput.new 
+ 	end
   end
 
   def draw
     @background_image.draw(0, 0, 0)
     @font1.draw("TYPESPEED", 10, 10, ZOrder::UI, 1.0, 1.0, 0xff_00ffff )
     @font.draw("Score: #{@score}", 10, 50, ZOrder::UI, 1.0, 1.0, 0xff_00ffff)
-	  @font.draw("Health: #{@health}",10, 70 , ZOrder::UI, 1.0, 1.0, 0xff_00ffff)
+	@font.draw("Health: #{@health}",10, 70 , ZOrder::UI, 1.0, 1.0, 0xff_00ffff)
     @object_words.each {|word| word.draw}
     if @health <= 0
       @font2.draw("GAME OVER", 300, 250, ZOrder::UI, 1.0, 1.0, 0xff_ff0000)

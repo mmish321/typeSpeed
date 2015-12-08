@@ -1,7 +1,7 @@
 
 class Word
 	
-	attr_accessor :x, :y , :points
+	attr_accessor :x, :y , :points, :string
 	
 	def initialize(string)
 		@string = string 
@@ -31,7 +31,7 @@ class Word
 	end
 
 	def is_at_bottom?
-		if @y =< 500.0 && @y >= 480.0
+		if @y <= 500.0 && @y >= 480.0
 			@exploded = true
 			return @exploded
 		end
