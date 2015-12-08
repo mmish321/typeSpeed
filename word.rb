@@ -5,7 +5,7 @@ class Word
 	
 	def initialize(string)
 		@string = string 
-		@color = Gosu::Color.new(0xff_00ffff)
+		@color = Gosu::Color.new(0xff_000000)
 		@x = rand(1000)
 		@y = 0.0
 		@vel = rand(0.20..1.00)
