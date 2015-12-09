@@ -11,9 +11,8 @@ class CompoundWord < Word
 	end
 
 	def move
-		@vel = @vel + 0.5 * rand(0.05..0.07)
+		@vel = @vel + 0.5 * rand(0.05..0.07)#This is the acceleration
 		@y += @vel * 0.25
 	end
-
-
+	
 end

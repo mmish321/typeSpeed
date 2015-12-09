@@ -7,11 +7,11 @@ class Word
 		@string = string 
 		@color = Gosu::Color.new(0xff_ff0000)
 		@x = rand(0..1000)
-		@y = 0.0
-		@vel =(0.20..1.00)
+		@y = 0.00
+		@vel = rand(0.20..1.00)
 		@explosion = Gosu::Image.new("media/explosion.png")
 		@exploded = false
-		@explode_drawn = false
+		@explosion_drawn = false
 		@font = Gosu::Font.new(20)
 		@points = 10
 	end
@@ -22,11 +22,9 @@ class Word
 	
 	def draw
 		 if self.is_at_bottom? == true
-		 	@explode_drawn = true
-		 	
+		 	@explosion_drawn = true 	
 		 	@explosion.draw(@x - @explosion.width / 2.0, @y - @explosion.height/2.0, 
 			 ZOrder::Words, 1, 1)	
-			
 		else
 			@font.draw(@string, @x, @y, ZOrder::Words, 1.0, 1.0, @color )
 		end
@@ -43,8 +41,7 @@ class Word
 	end
 	
 	def explode_drawn?
-		return @explode_drawn
+		return @explosion_drawn
 	end
-
 
 end
