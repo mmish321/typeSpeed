@@ -8,7 +8,7 @@ class Word
 		@color = Gosu::Color.new(0xff_ff0000)
 		@x = rand(0..1000)
 		@y = 0.0
-		@vel =1.00
+		@vel =(0.20..1.00)
 		@explosion = Gosu::Image.new("media/explosion.png")
 		@exploded = false
 		@explode_drawn = false

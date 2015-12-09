@@ -34,16 +34,14 @@ class GameWindow < Gosu::Window
     @object_words.each { |word|
     	word.move
     }
-
-    if Gosu::milliseconds> @time && @time <= 60000
-      @object_words.push(Word.new(@words[(rand(@words.length-1)).to_i]))
-      @time += 3000
-  	elsif Gosu::milliseconds > @time  && @time >= 60000
+  if (Gosu::milliseconds - @time) >= 3000 
+    if (Gosu::milliseconds - @time) % 6000 <= self.update_interval
       	@object_words.push(Word.new(@words[(rand(@words.length-1)).to_i]))
-      @object_words.push(CompoundWord.new(@words[(rand(@words.length-1)).to_i] + @words[(rand(@words.length-1)).to_i]))
-      	@time += 6000
+        @object_words.push(CompoundWord.new(@words[(rand(@words.length-1)).to_i] + @words[(rand(@words.length-1)).to_i]))
+    elsif (Gosu::milliseconds - @time) % 3000 <= self.update_interval
+        @object_words.push(Word.new(@words[(rand(@words.length-1)).to_i]))
     end
-    
+  end  
 
      if Gosu::button_down? Gosu::KbReturn
 	    @object_words.each { |word|
