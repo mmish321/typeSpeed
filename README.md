@@ -25,6 +25,7 @@ Once you start the game in the console, a window will pop up. 3 seconds will be 
 
 Once you have finished typing a word on your keyboard, press the **Return or Enter key**  
 The return/enter key will submit the word you typed and if your word matches the one of the words on the screen, the word will disappear and your score will increase and you can move on to type the other words on the screen!
+**Hint!**: Please make sure you are actually in the game window, if you are typing words and pressing return and nothing happens, its probably because you are not in the game window! Use your mouse and click anywhere on the game window and then start typing!
 
   **If you mess up typing a word, do not panic!**
 * If you messed up early and only typed a few letters, you can press the backspace key to clear the letters and restart typing the word, then press the return key once you have typed the correct word to submit the word or you can do the other strategy below if you prefer.
