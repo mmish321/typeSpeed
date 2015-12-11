@@ -13,17 +13,27 @@ Next we will enter the folder so we can run the game.
 Type this into the console:
 ```
 $ cd typeSpeed
+```  
+Also type this in order to install gosu so the game can run! Withou the Gosu gem, the game will not function
 ```
-Great! Now we're in the folder and can run the game from here!  
+$ gem install gosu
+
+```
+```
+$ bundle install
+
+```
+
+Great! Now we're in the folder and gosu is installed! Let's run the game! 
 To run the game, type into the console:
 ```
 $ ruby main.rb
 
 ```
 ### Game Controls
-Once you start the game in the console, a window will pop up. 3 seconds will be given before the words start falling from the top of the screen.  After a minute of time, the game will get harder! Compound words will start falling after one minute.  
+Once you start the game in the console, a window will pop up. 3 seconds will be given before the words start falling from the top of the window.  After a minute of time, the game will get harder! Compound words will start falling after one minute.  
 
-Once you have finished typing a word on your keyboard, press the **Return or Enter key**  
+Once you have finished typing a word on your keyboard, press the **Return or Enter key**  depending on your keyboard
 The return/enter key will submit the word you typed and if your word matches the one of the words on the screen, the word will disappear and your score will increase and you can move on to type the other words on the screen!  
 
 **Hint!**: Please make sure you are actually in the game window, if you are typing words and pressing return and nothing happens, its probably because you are not in the game window! Use your mouse and click anywhere on the game window and then start typing!
