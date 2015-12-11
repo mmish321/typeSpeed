@@ -1,9 +1,12 @@
 # TypeSpeed!
 TypeSpeed is a game where words fall from the top of the screen and you must type them before they reach the bottom of the screen. If they reach the bottom of the screen, your health will be deducted. If you type a word correctly, your score will go up and the word will dissappear from the screen. There will be normal words and compound words. Compound words are worth more but accelerate(get faster and faster) while the normal words fall at a steady rate. Are you fast enough?
+
 ## Setup
 To install this game onto your own computer, you must have GitBash, if you don't have GitBash then install the latest version onto your computer.   
 Link to install : [GitBash](https://git-scm.com/downloads)  
-If you have GitBash then please copy this onto the console : 
+We are going to copy the game folder onto your desktop, make sure you are on the desktop and click the right click button of your mouse to open up the menu and click GITBASH HERE or GITBASH from the menu and it will open the gitBash console and once you execute the code down below, it will copy the game folder onto your desktop. 
+
+Please copy this onto the console to start the process of transfering the game to your computer : 
 ```
 $ git clone https://github.com/mmish321/typeSpeed
 ```    
@@ -14,7 +17,7 @@ Type this into the console:
 ```
 $ cd typeSpeed
 ```  
-Also type this in order to install gosu so the game can run! Withou the Gosu gem, the game will not function
+Once you are in the folder,type this in order to install gosu so the game can run! Withou the Gosu gem, the game will not function
 ```
 $ gem install gosu
 
@@ -29,7 +32,16 @@ To run the game, type into the console:
 ```
 $ ruby main.rb
 
+```  
+Once you have exited the game and closed the gitBash window, if you would like to play the game again then follow the directions below
+Open gitBash from the desktop again by pulling the right click menu up and clicking on gitBash then type the following code below into the console to run the game again
 ```
+$ cd typeSpeed
+```
+```
+$ ruby main.rb
+```
+
 ### Game Controls
 Once you start the game in the console, a window will pop up. 3 seconds will be given before the words start falling from the top of the window.  After a minute of time, the game will get harder! Compound words will start falling after one minute.  
 
