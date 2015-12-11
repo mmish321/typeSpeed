@@ -36,18 +36,18 @@ class GameWindow < Gosu::Window
     	word.move
     }
 
-    if (Gosu::milliseconds - @time) >= 60000
-      if (Gosu::milliseconds - @time) % 6000 <= self.update_interval
+    if (Gosu::milliseconds - @time) >= 60000 #once time is greater than a minute then game gets harder
+      if (Gosu::milliseconds - @time) % 6000 <= self.update_interval #adds a compound and normal word every 6 seconds
         	@words_on_screen.push(Word.new(@words[(rand(@words.length-1)).to_i]))
           @words_on_screen.push(CompoundWord.new(@words[(rand(@words.length-1)).to_i] + @words[(rand(@words.length-1)).to_i]))
-       elsif (Gosu::milliseconds - @time) % 3000 <= self.update_interval
+       elsif (Gosu::milliseconds - @time) % 3000 <= self.update_interval #adds a normal word every 3 seconds
           @words_on_screen.push(Word.new(@words[(rand(@words.length-1)).to_i]))
       end    
-    elsif (Gosu::milliseconds - @time) % 3000 <= self.update_interval
+    elsif (Gosu::milliseconds - @time) % 3000 <= self.update_interval # under a minute, only add 1 normal word every 3 seconds
           @words_on_screen.push(Word.new(@words[(rand(@words.length-1)).to_i]))
     end  
 
-    if Gosu::button_down? Gosu::KbReturn
+    if Gosu::button_down? Gosu::KbReturn #once enter is pressed, the text input is compared to words on the screen
   	   @words_on_screen.each { |word|
   	    if self.text_input.text.eql? word.string 
   	     @score += word.points
@@ -56,7 +56,7 @@ class GameWindow < Gosu::Window
   	   end
   	   } 
   	  self.text_input = nil 
-  		self.text_input =Gosu::TextInput.new 
+  		self.text_input =Gosu::TextInput.new #reseting the user input after they press enter for next typed word
    	end
 
    	if @health <= 0
@@ -82,7 +82,7 @@ class GameWindow < Gosu::Window
  
  
   def button_down(id)
-     if id == Gosu::KbReturn && @health <= 0
+     if id == Gosu::KbReturn && @health <= 0 #Restart function 
 	    self.caption = "TYPESPEED"
 	    @background_image = Gosu::Image.new("media/background.jpeg", :tileable => true)
 	    @font = Gosu::Font.new(20)
