@@ -33,15 +33,7 @@ To run the game, type into the console:
 $ ruby main.rb
 
 ```  
-Once you have exited the game and closed the gitBash console and if you would like to play the game again then follow the directions below  
-Open gitBash from the desktop again by pulling the right click menu up and clicking on gitBash then type the following code below into the console to run the game again
 
-```
-$ cd typeSpeed
-```
-```
-$ ruby main.rb
-```
 
 ### Game Controls
 Once you start the game in the console, a window will pop up. 3 seconds will be given before the words start falling from the top of the window.  After a minute of time, the game will get harder! Compound words will start falling after one minute.  
@@ -58,6 +50,19 @@ The return/enter key will submit the word you typed and if your word matches the
 TypeSpeed will only take away your health **if the words reach the bottom** of the screen so don't worry about submitting wrong words with the return key! It will not affect your score!    
 
 To **exit** the game, simply press the **escape key** and the game window will close or click on the red exit button , located at the top right corner of the window!  
-To **restart the game**, simply press the **enter/return key** when  the GAME OVER screen appears and the game will completely restart. 
+To **restart the game**, simply press the **enter/return key** when  the GAME OVER screen appears and the game will completely restart. If you closed the game and would like to restart, the directions are below  
+If you have exited the game and **closed the gitBash console**  then :
+Open gitBash from the desktop again by pulling the right click menu up and clicking on gitBash then type the following code below into the console to run the game again
+
+```
+$ cd typeSpeed
+```
+```
+$ ruby main.rb
+```  
+**Hint!**: If the gitBash console is still open and you exited the game then simply type the code down below to restart the game
+```
+$ ruby main.rb
+```
 
 #### HAVE FUN TYPING!
