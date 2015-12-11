@@ -33,8 +33,9 @@ To run the game, type into the console:
 $ ruby main.rb
 
 ```  
-Once you have exited the game and closed the gitBash window, if you would like to play the game again then follow the directions below
+Once you have exited the game and closed the gitBash console and if you would like to play the game again then follow the directions below  
 Open gitBash from the desktop again by pulling the right click menu up and clicking on gitBash then type the following code below into the console to run the game again
+
 ```
 $ cd typeSpeed
 ```
