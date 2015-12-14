@@ -13,18 +13,15 @@ class GameWindow < Gosu::Window
     @font = Gosu::Font.new(20)
     @bigfont= Gosu::Font.new(40)
     @biggestfont = Gosu::Font.new(100)
-
     data = File.read("words.txt")
     @words_on_screen = []
     @words = data.split(", ")
-
     @health = 100
     @score = 0 
     @time = Gosu::milliseconds
-
     @beep = Gosu::Sample.new("media/beep.wav")
     @explosion_sound = Gosu::Sample.new("media/explosion.wav")
-   	self.text_input =Gosu::TextInput.new
+    self.text_input =Gosu::TextInput.new
   end
 
   def update
@@ -49,11 +46,13 @@ class GameWindow < Gosu::Window
   
   def button_down(id)
      if id == Gosu::KbReturn && @health <= 0 #Restart function 
-	    reset_game
+	    initialize
 	  elsif id == Gosu::KbEscape
 	  	close
      end
   end
+
+  
 
   private
     def move_words
@@ -63,7 +62,7 @@ class GameWindow < Gosu::Window
     end
     def check_words_at_bottom
       @words_on_screen.each { |word|
-      if word.explode_drawn? == true 
+      if word.explode_drawn?
         @explosion_sound.play
          @health -= 10
         @words_on_screen.delete(word)
@@ -99,22 +98,6 @@ class GameWindow < Gosu::Window
         self.text_input = nil 
         self.text_input =Gosu::TextInput.new #reseting the user input after they press enter for next typed word
       end  
-    end
-    def reset_game
-      self.caption = "TYPESPEED"
-      @background_image = Gosu::Image.new("media/background.jpeg", :tileable => true)
-      @font = Gosu::Font.new(20)
-      @bigfont= Gosu::Font.new(40)
-      @biggestfont = Gosu::Font.new(100)
-      data = File.read("words.txt")
-      @words_on_screen = []
-      @words = data.split(", ")
-      @health = 100
-      @score = 0 
-      @time = Gosu::milliseconds
-      @beep = Gosu::Sample.new("media/beep.wav")
-      @explosion = Gosu::Sample.new("media/explosion.wav")
-      self.text_input =Gosu::TextInput.new
     end
 
 end

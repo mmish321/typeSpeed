@@ -5,14 +5,14 @@ class Word
 	
 	def initialize(string)
 		@string = string 
-		@color = Gosu::Color.new(0xff_ff0000)
-		@x = rand(0..1000)
+		@color = Gosu::Color.new(0xff_00ffff)
+		@x = rand(225..1000)
 		@y = 0.00
 		@vel = rand(0.20..1.00)
 		@explosion = Gosu::Image.new("media/explosion.png")
 		@exploded = false
 		@explosion_drawn = false
-		@font = Gosu::Font.new(20)
+		@font = Gosu::Font.new(24)
 		@points = 10
 	end
 
@@ -31,7 +31,7 @@ class Word
 	end
  
 	def is_at_bottom?
-		if @y <= 500.0 && @y >= 475.0
+		if @y <= GameWindow::HEIGHT && @y >= 475.0
 			@exploded = true
 			return @exploded
 		else
